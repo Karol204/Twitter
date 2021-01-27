@@ -5,10 +5,11 @@
     {% if user.is_authenticated %}
     <button><a href="{% url 'logout' %}"> Log out</a> </button>
     {% endif %}
-    {% for tweet in tweets %}
     <div>
     <h3>{{ tweet.author }}</h3><h2>{{ tweet.creation_date }}</h2>
-        <p><a href="/tweet/{{ tweet.id }}/"> {{ tweet.content }}</a></p>
+        <p> {{ tweet.content }}</p>
     </div>
-    {% endfor %}
+
+    <h1>Comments:</h1>
+
 {% endblock %}

@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Twitter</title>
+    <title>{% block title %}Twitter {% endblock %}</title>
 </head>
 <body>
+<button><a href="{% url 'login' %}"> Log in</a> </button>
 {% block content %}
 {% endblock %}
 </body>

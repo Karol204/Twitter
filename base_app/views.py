@@ -5,6 +5,13 @@ from .forms import addTweetForm
 from django.contrib.auth import get_user_model
 # Create your views here.
 
+
+class firstPageView(View):
+
+    def get(self, request):
+        return render(request, 'firstPage.html')
+
+
 class landingPage(View):
 
     def get(self, request):
@@ -32,3 +39,12 @@ class addTweetView(View):
             tweet = Tweet(content=content, author=user)
             tweet.save()
         return redirect('/')
+
+class singleTweetView(View):
+
+    def get(self, request, id):
+        tweet = Tweet.objects.get(pk=id)
+        ctx = {
+            'tweet': tweet,
+        }
+        return render(request, 'singleTweetPage.html', ctx)
